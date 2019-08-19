@@ -1,19 +1,19 @@
-import express from "express";
-import "@babel/polyfill";
+import express from 'express';
+import '@babel/polyfill';
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).json({
     status: 200,
-    message: "Welcome to NextProduct"
+    message: 'Welcome to NextProduct',
   });
 });
 
 app.use((req, res) => {
   res.status(404).json({
     status: 404,
-    message: "Page not found"
+    message: 'Page not found',
   });
 });
 
