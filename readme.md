@@ -1,4 +1,8 @@
 # Next Product
+[![Coverage Status](https://coveralls.io/repos/github/willywax/NextProduct/badge.svg?branch=develop)](https://coveralls.io/github/willywax/NextProduct?branch=develop)
+[![Build Status](https://travis-ci.org/willywax/NextProduct.svg?branch=develop)](https://travis-ci.org/willywax/NextProduct)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ba717f114d08efc1a875/maintainability)](https://codeclimate.com/github/willywax/NextProduct/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ba717f114d08efc1a875/test_coverage)](https://codeclimate.com/github/willywax/NextProduct/test_coverage)
 
 NEXTPRODUCT allows an individual or a group of individuals to vote on the product that they feel are in line with their values, so that they can decide to support
 

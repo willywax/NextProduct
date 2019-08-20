@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test nyc mocha --require @babel/register ./backend/test/*.js --timeout 60000 --exit",
-    "build": "babel backend -d build",
-    "start": "npm run build && node ./build/app.js",
+    "build": "rm -rf ./build && babel backend -d build",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
+    "coveralls-coverage": "coveralls < lcov.info",
     "dev": "nodemon --exec babel-node ./backend/app.js",
-    "lint": "eslint . --fix --ignore-path .gitignore"
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "start": "npm run build && node ./build/app.js",
+    "test": "NODE_ENV=test && npm run migrate && nyc mocha --require @babel/register ./backend/test/*.js --timeout 60000 --exit"
   },
   "author": "",
   "license": "ISC",
@@ -29,10 +35,12 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "coveralls": "^3.0.6",
     "eslint": "^6.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1"
   }
