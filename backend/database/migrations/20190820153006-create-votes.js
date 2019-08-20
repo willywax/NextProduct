@@ -1,28 +1,26 @@
-
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Products', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Votes', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
-    name: {
-      type: Sequelize.STRING,
-    },
-    description: {
-      type: Sequelize.STRING,
-    },
-    image: {
-      type: Sequelize.STRING,
-    },
     userId: {
       type: Sequelize.INTEGER,
-      onDelete: 'CASCADE',
       references: {
         model: 'Users',
         key: 'id',
         as: 'userId',
+      },
+    },
+    productId: {
+      type: Sequelize.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Products',
+        key: 'id',
+        as: 'productId',
       },
     },
     createdAt: {
@@ -34,5 +32,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Products'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Votes'),
 };

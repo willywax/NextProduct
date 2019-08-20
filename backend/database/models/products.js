@@ -3,12 +3,14 @@ const products = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     image: DataTypes.STRING,
-    votes: DataTypes.ARRAY,
   }, {});
   Products.associate = (models) => {
     Products.belongsTo(models.Users, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
+    });
+    Products.hasMany(models.Votes, {
+      foreignKey: 'productId',
     });
   };
   return Products;
