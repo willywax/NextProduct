@@ -11,7 +11,6 @@ const db = {};
 
 const sequelize = new Sequelize(process.env[config.use_env_variable], config);
 
-
 readdirSync(__dirname)
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
@@ -20,9 +19,7 @@ readdirSync(__dirname)
   });
 
 Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+  db[modelName].associate(db);
 });
 
 db.sequelize = sequelize;
