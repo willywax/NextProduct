@@ -2,3 +2,6 @@ node_modules
 build
 .nyc_output
 .env
+/coverage
+lcov.info
+.DS_Store
