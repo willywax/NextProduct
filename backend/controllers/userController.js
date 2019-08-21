@@ -2,13 +2,11 @@ import generatePassword from '../utils/generatePassword';
 import userService from '../services/userService';
 import generateToken from '../utils/generateToken';
 
-
 const _ = require('lodash');
 
 class Users {
   static async createUser(req, res) {
-    const rawData = _.pick(req.body, ['firstName', 'lastName', 'email',
-      'password']);
+    const rawData = _.pick(req.body, ['firstName', 'lastName', 'email', 'password']);
 
     const details = await userService.userCount(rawData.email);
     if (details) {

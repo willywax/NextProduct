@@ -43,34 +43,54 @@ const regDataWrongPassword = {
 describe('User', () => {
   describe('creates an account', () => {
     it('with invaild properties', (done) => {
-      chai.request(server).post(signupUrl).send(regData).end((_err, res) => {
-        expect(res.status).to.eq(201);
-        done();
-      });
+      chai
+        .request(server)
+        .post(signupUrl)
+        .send(regData)
+        .end((_err, res) => {
+          expect(res.status).to.eq(201);
+          done();
+        });
     });
     it('with invaild first name', (done) => {
-      chai.request(server).post(signupUrl).send(regDataWrongFirstName).end((_err, res) => {
-        expect(res.status).to.eq(400);
-        done();
-      });
+      chai
+        .request(server)
+        .post(signupUrl)
+        .send(regDataWrongFirstName)
+        .end((_err, res) => {
+          expect(res.status).to.eq(400);
+          done();
+        });
     });
     it('with invaild last name', (done) => {
-      chai.request(server).post(signupUrl).send(regDataWrongLastName).end((_err, res) => {
-        expect(res.status).to.eq(400);
-        done();
-      });
+      chai
+        .request(server)
+        .post(signupUrl)
+        .send(regDataWrongLastName)
+        .end((_err, res) => {
+          expect(res.status).to.eq(400);
+          done();
+        });
     });
     it('with invaild email', (done) => {
-      chai.request(server).post(signupUrl).send(regDataWrongEmail).end((_err, res) => {
-        expect(res.status).to.eq(400);
-        done();
-      });
+      chai
+        .request(server)
+        .post(signupUrl)
+        .send(regDataWrongEmail)
+        .end((_err, res) => {
+          expect(res.status).to.eq(400);
+          done();
+        });
     });
     it('with invaild password', (done) => {
-      chai.request(server).post(signupUrl).send(regDataWrongPassword).end((_err, res) => {
-        expect(res.status).to.eq(400);
-        done();
-      });
+      chai
+        .request(server)
+        .post(signupUrl)
+        .send(regDataWrongPassword)
+        .end((_err, res) => {
+          expect(res.status).to.eq(400);
+          done();
+        });
     });
   });
 });
