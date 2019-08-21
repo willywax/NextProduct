@@ -6,9 +6,13 @@ import validation from '../middlewares/productValidation';
 const router = Router();
 
 router.use(fileupload({
-    useTempFiles: true,
+  useTempFiles: true,
 }));
 
 router.post('/', validation.productValidation, ProductController.addProduct);
+router.get('/',ProductController.getAllProducts);
+
+
+router.get('/:id', validation.productIdValidate, ProductController.viewProduct);
 
 export default router;
