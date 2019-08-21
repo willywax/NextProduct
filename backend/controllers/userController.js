@@ -21,13 +21,13 @@ class Users {
     const newPassword = await generatePassword(rawData, userService.userCount(rawData.email));
     // update data
     rawData.password = newPassword;
-    const token = await generateToken(rawData.id, rawData.email);
     const data = await userService.createUser(rawData);
+    const token = await generateToken(data.id, data.email);
+    data.token = token;
     return res.status(201).send({
       status: res.statusCode,
       message: 'Account has been created successfully',
-      token,
-      data: _.pick(data, ['userid', 'first_name', 'last_name', 'email']),
+      data: _.pick(data, ['token', 'id', 'firstName', 'lastName', 'email']),
     });
   }
 }
