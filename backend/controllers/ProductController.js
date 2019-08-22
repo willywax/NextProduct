@@ -35,6 +35,13 @@ class ProductController {
   static async updateProduct(req, res) {
     const product = req.body;
     const { id } = req.user;
+    const productExists = await ProductService.findProduct(req.params.id);
+    if (productExists === null) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Product doesn\'t exist',
+      });
+    }
     const isOwner = await ProductService.checkOwner(req.params.id, id);
     if (!isOwner) {
       return res.status(401).json({
@@ -111,7 +118,36 @@ class ProductController {
       });
     }
   }
-  
+
+  static async deleteProduct(req, res) {
+    const productId = req.params.id;
+    const { id } = req.user;
+    const productExists = await ProductService.findProduct(productId);
+    if (productExists === null) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Product doesn\'t exist',
+      });
+    }
+    const isOwner = await ProductService.checkOwner(req.params.id, id);
+    if (!isOwner) {
+      return res.status(401).json({
+        status: 401,
+        message: 'You can not delete this product',
+      });
+    }
+    const deleteStatus = await ProductService.deleteProduct(productId);
+    if (deleteStatus) {
+      return res.status(200).json({
+        status: res.statusCode,
+        message: 'Product deleted successfully',
+      });
+    }
+    return res.status(404).json({
+      status: res.statusCode,
+      message: 'Product does not exist',
+    });
+  }
 }
 
 export default ProductController;
