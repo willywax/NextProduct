@@ -204,3 +204,43 @@ describe('/Product', () => {
     });
   });
 });
+describe('/Vote', () => {
+  it('should add a vote', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/1/vote')
+      .set('authorization', `Bearer ${token}`)
+      .send(product)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(200);
+        return done();
+      });
+  });
+  it('should delete a vote', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/1/vote')
+      .set('authorization', `Bearer ${token}`)
+      .send(product)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.status.should.equal(200);
+        return done();
+      });
+  });
+  it('should not vote a product', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/200/vote')
+      .set('authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(404);
+        return done();
+      });
+  });
+});
