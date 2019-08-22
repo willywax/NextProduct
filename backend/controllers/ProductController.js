@@ -31,6 +31,22 @@ class ProductController {
       });
     }
   }
+
+  static async viewProduct(req, res) {
+    const productId = req.params.id;
+    const viewProduct = await ProductService.findProduct(productId);
+    if (viewProduct) {
+      return res.status(200).json({
+        status: res.statusCode,
+        message: 'Product retrieved successfully',
+        data: viewProduct,
+      });
+    }
+    return res.status(404).json({
+      status: res.statusCode,
+      message: 'Product does not exist',
+    });
+  }
 }
 
 export default ProductController;
