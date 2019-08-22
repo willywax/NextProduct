@@ -32,6 +32,36 @@ class ProductController {
     }
   }
 
+  static async updateProduct(req, res) {
+    const product = req.body;
+    const { id } = req.user;
+    const isOwner = await ProductService.checkOwner(req.params.id, id);
+    if (!isOwner) {
+      return res.status(401).json({
+        status: 401,
+        message: 'You can not edit this product',
+      });
+    }
+    if (req.files) {
+      const file = req.files.photo;
+      const image = await uploader(file.tempFilePath);
+      product.image = image.url;
+    }
+    try {
+      const [rowsNumber, [{ dataValues }]] = await ProductService.updateProduct(req.params.id, product);
+      return res.status(201).json({
+        status: 200,
+        message: 'Product successfully updated!',
+        data: dataValues,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        message: error,
+      });
+    }
+  }
+
   static async viewProduct(req, res) {
     const productId = req.params.id;
     const viewProduct = await ProductService.findProduct(productId);
@@ -47,7 +77,8 @@ class ProductController {
       message: 'Product does not exist',
     });
   }
-  static async getAllProducts(req,res){
+
+  static async getAllProducts(req, res) {
     try {
       const allProducts = await ProductService.getAllProducts();
 
@@ -56,8 +87,7 @@ class ProductController {
         message: 'Successfully retrieved all your products',
         data: allProducts,
       });
-      
-    }catch (error){
+    } catch (error) {
       res.status(500).json({
         status: 500,
         message: error,

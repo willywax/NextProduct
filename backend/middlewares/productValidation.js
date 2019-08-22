@@ -36,6 +36,25 @@ class validation {
       }
     });
   }
+
+  static async productUpdateValidation(req, res, next) {
+    const schema = Joi.object().keys({
+      name: Joi.string().max(30)
+        .error(() => 'You have to enter a valid name. Example: Netflix'),
+      description: Joi.string().min(3).max(250)
+        .error(() => 'You have to enter a valid description'),
+    });
+    await schema.validate(req.body, (err) => {
+      if (err) {
+        res.status(400).json({
+          status: 400,
+          message: err.details[0].message,
+        });
+      } else {
+        next();
+      }
+    });
+  }
 }
 
 export default validation;
