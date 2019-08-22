@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-catch */
 import database from '../database/models';
 
-const {Users} = database
+const { Users } = database;
 class UserService {
   static async createUser(user) {
     try {

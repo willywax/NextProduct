@@ -19,14 +19,19 @@ const product = {
   description: 'Description Sample',
 };
 
+const updatedProduct = {
+  name: 'New Product',
+  description: 'New Description Sample',
+};
+
 const invalidName = {
-  name: '',
+  name: 'This is a long and invalid name',
   description: 'Description Sample',
 };
 
 const invalidDescription = {
   name: 'Netflix',
-  description: '',
+  description: 'X',
 };
 
 let token;
@@ -98,6 +103,47 @@ describe('/Product', () => {
         });
     });
   });
+  describe('/Updated', () => {
+    it('should update an existing product', (done) => {
+      chai.request(app)
+        .patch('/api/v1/products/1')
+        .set('authorization', `Bearer ${token}`)
+        .send(updatedProduct)
+        .end((err, res) => {
+          if (err) {
+            return done(err);
+          }
+          res.body.status.should.equal(200);
+          return done();
+        });
+    });
+    it('should enter valid name', (done) => {
+      chai.request(app)
+        .patch('/api/v1/products/1')
+        .set('authorization', `Bearer ${token}`)
+        .send(invalidName)
+        .end((err, res) => {
+          if (err) {
+            return done(err);
+          }
+          res.body.status.should.equal(400);
+          return done();
+        });
+    });
+    it('should enter valid description', (done) => {
+      chai.request(app)
+        .patch('/api/v1/products/1')
+        .set('authorization', `Bearer ${token}`)
+        .send(invalidDescription)
+        .end((err, res) => {
+          if (err) {
+            return done(err);
+          }
+          res.body.status.should.equal(400);
+          return done();
+        });
+    });
+  });
   describe('/View', () => {
     it('should view a product', (done) => {
       chai.request(app)
@@ -134,26 +180,26 @@ describe('/Product', () => {
           res.body.status.should.equal(404);
           return done();
         });
+    });
 
-        it('should get all products', (done) => {
-            chai.request(app)
-                .get('/api/v1/products')
-                .set('Accept', 'application/json')
-                .set('authorization', `Bearer ${token}`)
-                .end((err,res)=>{
-                    if(err){ done(err) }
-                    
-                    res.body.status.should.equal(200);
-            
-                    res.body.data[0].should.have.property('id');
-                    res.body.data[0].should.have.property('name');
-                    res.body.data[0].should.have.property('description');
-                    res.body.data[0].should.have.property('userId');
-                    res.body.data[0].should.have.property('updatedAt');
-                    res.body.data[0].should.have.property('createdAt');
-        
-                    done();
-                })
+    it('should get all products', (done) => {
+      chai.request(app)
+        .get('/api/v1/products')
+        .set('Accept', 'application/json')
+        .set('authorization', `Bearer ${token}`)
+        .end((err, res) => {
+          if (err) { done(err); }
+
+          res.body.status.should.equal(200);
+
+          res.body.data[0].should.have.property('id');
+          res.body.data[0].should.have.property('name');
+          res.body.data[0].should.have.property('description');
+          res.body.data[0].should.have.property('userId');
+          res.body.data[0].should.have.property('updatedAt');
+          res.body.data[0].should.have.property('createdAt');
+
+          done();
         });
     });
   });
