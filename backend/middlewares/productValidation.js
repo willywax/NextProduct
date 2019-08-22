@@ -18,7 +18,24 @@ class validation {
         next();
       }
     });
-  };
+  }
+
+  static async productIdValidate(req, res, next) {
+    const schema = Joi.object().keys({
+      id: Joi.number().integer().min(1).required()
+        .error(() => 'Enter a positive product id'),
+    });
+    await schema.validate(req.params, (err) => {
+      if (err) {
+        res.status(400).json({
+          status: 400,
+          message: err.details[0].message,
+        });
+      } else {
+        next();
+      }
+    });
+  }
 }
 
 export default validation;
