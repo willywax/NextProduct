@@ -134,6 +134,27 @@ describe('/Product', () => {
           res.body.status.should.equal(404);
           return done();
         });
+
+        it('should get all products', (done) => {
+            chai.request(app)
+                .get('/api/v1/products')
+                .set('Accept', 'application/json')
+                .set('authorization', `Bearer ${token}`)
+                .end((err,res)=>{
+                    if(err){ done(err) }
+                    
+                    res.body.status.should.equal(200);
+            
+                    res.body.data[0].should.have.property('id');
+                    res.body.data[0].should.have.property('name');
+                    res.body.data[0].should.have.property('description');
+                    res.body.data[0].should.have.property('userId');
+                    res.body.data[0].should.have.property('updatedAt');
+                    res.body.data[0].should.have.property('createdAt');
+        
+                    done();
+                })
+        });
     });
   });
 });

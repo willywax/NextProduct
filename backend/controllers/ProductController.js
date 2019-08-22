@@ -47,6 +47,23 @@ class ProductController {
       message: 'Product does not exist',
     });
   }
+  static async getAllProducts(req,res){
+    try {
+      const allProducts = await ProductService.getAllProducts();
+
+      res.status(200).json({
+        status: 200,
+        message: 'Successfully retrieved all your products',
+        data: allProducts,
+      });
+      
+    }catch (error){
+      res.status(500).json({
+        status: 500,
+        message: error,
+      });
+    }
+  }
 }
 
 export default ProductController;

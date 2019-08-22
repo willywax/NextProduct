@@ -28,6 +28,14 @@ class ProductService {
       });
     } catch (error) {
       throw error;
+  }
+}
+
+  static async getAllProducts(){
+    try{
+      return await Products.findAll();
+    }catch(error){
+      throw error;
     }
   }
 }

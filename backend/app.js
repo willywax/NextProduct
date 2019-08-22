@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', userRoutes);
 app.use('/api/v1/products', checkAuth, productRoutes);
 
+
 app.use((req, res) => {
   res.status(404).json({
     status: 404,
