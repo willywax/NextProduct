@@ -59,6 +59,18 @@ class ProductService {
       throw error;
     }
   }
+
+  static async getMyProducts(userId) {
+    try {
+      return await Products.findAll({
+        where: {
+          userId,
+        },
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default ProductService;

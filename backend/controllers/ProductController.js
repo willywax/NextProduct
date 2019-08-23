@@ -84,6 +84,23 @@ class ProductController {
 
       res.status(200).json({
         status: 200,
+        message: 'Successfully retrieved all products',
+        data: allProducts,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        message: error,
+      });
+    }
+  }
+
+  static async getMyProducts(req, res) {
+    try {
+      const allProducts = await ProductService.getMyProducts(req.user.id);
+
+      res.status(200).json({
+        status: 200,
         message: 'Successfully retrieved all your products',
         data: allProducts,
       });
