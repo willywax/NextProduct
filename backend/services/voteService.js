@@ -11,18 +11,6 @@ class VotesService {
     }
   }
 
-  static async returnVotes(id) {
-    try {
-      return await Votes.findAll({
-        where: {
-          productId: id,
-        },
-      });
-    } catch (error) {
-      throw error;
-    }
-  }
-
   static async votesCount(votes) {
     try {
       return await Votes.count({

@@ -12,6 +12,9 @@ const products = (sequelize, DataTypes) => {
     Products.hasMany(models.Votes, {
       foreignKey: 'productId',
     });
+    Products.hasMany(models.Comments, {
+      foreignKey: 'productId',
+    });
   };
   return Products;
 };

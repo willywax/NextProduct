@@ -46,6 +46,16 @@ class ProductService {
     try {
       return await Products.findOne({
         where: [{ id }],
+        include: [
+          {
+            model: database.Votes,
+            as: 'Votes',
+          },
+          {
+            model: database.Comments,
+            as: 'Comments',
+          },
+        ],
       });
     } catch (error) {
       throw error;
@@ -54,7 +64,14 @@ class ProductService {
 
   static async getAllProducts() {
     try {
-      return await Products.findAll();
+      return await Products.findAll({
+        include: [
+          {
+            model: database.Votes,
+            as: 'Votes',
+          },
+        ],
+      });
     } catch (error) {
       throw error;
     }
@@ -66,6 +83,12 @@ class ProductService {
         where: {
           userId,
         },
+        include: [
+          {
+            model: database.Votes,
+            as: 'Votes',
+          },
+        ],
       });
     } catch (error) {
       throw error;

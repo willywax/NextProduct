@@ -9,9 +9,20 @@ module.exports = {
     },
     userId: {
       type: Sequelize.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+        as: 'userId',
+      },
     },
     productId: {
       type: Sequelize.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Products',
+        key: 'id',
+        as: 'productId',
+      },
     },
     comment: {
       type: Sequelize.STRING,

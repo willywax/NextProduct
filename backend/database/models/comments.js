@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     productId: DataTypes.INTEGER,
     comment: DataTypes.STRING,
   }, {});
-  Comments.associate = function (models) {
+  Comments.associate = (models) => {
     // associations can be defined here
     Comments.belongsTo(models.Users, {
       foreignKey: 'userId',
