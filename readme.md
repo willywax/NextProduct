@@ -292,6 +292,28 @@ Response:
 }
 ```
 
+11. Adding  a Comment: POST request
+
+```json
+/products/:id/comment
+```
+
+Response:
+
+```json
+{
+  "status": 201,
+  "message": "Comment Successfully added",
+  "data": {
+     "id": 3,
+      "userId": 3,
+      "productId": 1,
+      "comment": "Cool Kids Commnet",
+      "updatedAt": "2019-08-23T13:00:14.185Z",
+      "createdAt": "2019-08-23T13:00:14.185Z"
+  }
+}
+
 ## Contributors
 
 - Bahati Robben

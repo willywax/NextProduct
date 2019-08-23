@@ -104,8 +104,10 @@ describe('/Product', () => {
     });
   });
 
+
     it('should get a single user products', (done) => {
       chai.request(app)
+
       .get('/api/v1/products/myproducts')
       .set('authorization', `Bearer ${token}`)
       .end((err, res) => {
@@ -116,8 +118,9 @@ describe('/Product', () => {
         res.body.status.should.equal(200);
         res.body.data.should.be.a('array');
         done();
-      })
-    });
+      });
+  });
+
 
   describe('/Updated', () => {
     it('should update an existing product', (done) => {
@@ -256,6 +259,66 @@ describe('/Vote', () => {
           return done(err);
         }
         res.body.status.should.equal(404);
+        return done();
+      });
+  });
+});
+
+describe('/Comment', () => {
+  const comment = {
+    comment: 'Looks like it will work',
+  };
+
+  it('should add a comment', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/1/comment')
+      .set('authorization', `Bearer ${token}`)
+      .send(comment)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(201);
+
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('userId');
+        res.body.data.should.have.property('productId');
+        res.body.data.should.have.property('comment');
+        res.body.data.should.have.property('updatedAt');
+        res.body.data.should.have.property('createdAt');
+
+        return done();
+      });
+  });
+
+  it('should add a comment if wrong Product', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/1210/comment')
+      .set('authorization', `Bearer ${token}`)
+      .send(comment)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(404);
+        return done();
+      });
+  });
+
+  it('should add a comment if comment is empty ', (done) => {
+    const comment = {
+      comment: '    ',
+    };
+
+    chai.request(app)
+      .post('/api/v1/products/1210/comment')
+      .set('authorization', `Bearer ${token}`)
+      .send(comment)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(400);
         return done();
       });
   });
