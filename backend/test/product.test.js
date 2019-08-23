@@ -104,8 +104,10 @@ describe('/Product', () => {
     });
   });
 
-  it('should get a single user products', (done) => {
-    chai.request(app)
+
+    it('should get a single user products', (done) => {
+      chai.request(app)
+
       .get('/api/v1/products/myproducts')
       .set('authorization', `Bearer ${token}`)
       .end((err, res) => {
@@ -118,6 +120,7 @@ describe('/Product', () => {
         done();
       });
   });
+
 
   describe('/Updated', () => {
     it('should update an existing product', (done) => {

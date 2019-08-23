@@ -63,9 +63,9 @@ class ProductService {
   static async getMyProducts(userId) {
     try {
       return await Products.findAll({
-        where: {
-          userId,
-        },
+        where : {
+          userId
+        }
       });
     } catch (error) {
       throw error;
