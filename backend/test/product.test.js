@@ -103,6 +103,22 @@ describe('/Product', () => {
         });
     });
   });
+
+    it('should get a single user products', (done) => {
+      chai.request(app)
+      .get('/api/v1/products/myproducts')
+      .set('authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        if (err) {
+          done(err);
+        }
+        res.status.should.eql(200);
+        res.body.status.should.equal(200);
+        res.body.data.should.be.a('array');
+        done();
+      })
+    });
+
   describe('/Updated', () => {
     it('should update an existing product', (done) => {
       chai.request(app)
