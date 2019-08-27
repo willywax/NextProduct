@@ -2,8 +2,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 module.exports = {
-  development: {
+  production: {
     use_env_variable: 'DATABASE_URL',
+    dialect: 'postgres',
+  },
+  development: {
+    use_env_variable: 'DEV_DATABASE_URL',
     dialect: 'postgres',
   },
   test: {

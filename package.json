@@ -15,7 +15,7 @@
     "dev": "nodemon --exec babel-node ./backend/app.js",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "lint": "eslint . --fix --ignore-path .gitignore",
-    "start": "npm run build && node ./build/app.js",
+    "start": "export NODE_ENV=production && npm run db-migrate && npm run build && node ./build/app.js",
     "test": "export NODE_ENV=test && npm run db-migrate:test && nyc mocha --require @babel/register ./backend/test/*.js --timeout 60000 --exit"
   },
   "author": "",
