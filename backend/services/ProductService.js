@@ -63,9 +63,19 @@ class ProductService {
   static async getMyProducts(userId) {
     try {
       return await Products.findAll({
-        where : {
-          userId
-        }
+        where: {
+          userId,
+        },
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async deleteProduct(id) {
+    try {
+      return await Products.destroy({
+        where: [{ id }],
       });
     } catch (error) {
       throw error;

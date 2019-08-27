@@ -105,8 +105,8 @@ describe('/Product', () => {
   });
 
 
-    it('should get a single user products', (done) => {
-      chai.request(app)
+  it('should get a single user products', (done) => {
+    chai.request(app)
 
       .get('/api/v1/products/myproducts')
       .set('authorization', `Bearer ${token}`)
@@ -120,7 +120,6 @@ describe('/Product', () => {
         done();
       });
   });
-
 
   describe('/Updated', () => {
     it('should update an existing product', (done) => {
@@ -305,7 +304,7 @@ describe('/Comment', () => {
       });
   });
 
-  it('should add a comment if comment is empty ', (done) => {
+  it('should not add a comment if comment is empty ', (done) => {
     const comment = {
       comment: '    ',
     };
@@ -319,6 +318,22 @@ describe('/Comment', () => {
           return done(err);
         }
         res.body.status.should.equal(400);
+        return done();
+      });
+  });
+});
+
+
+describe('delete a product', () => {
+  it('valid', (done) => {
+    chai.request(app)
+      .delete('/api/v1/products/1')
+      .set('authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.body.status.should.equal(200);
         return done();
       });
   });
