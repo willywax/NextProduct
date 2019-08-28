@@ -88,7 +88,9 @@ class ProductController {
   static async getAllProducts(req, res) {
     try {
       const allProducts = await ProductService.getAllProducts();
-
+      for (let i = 0; i < allProducts.length; i++) {
+        allProducts[i].dataValues.Votes = allProducts[i].dataValues.Votes.length;
+      }
       res.status(200).json({
         status: 200,
         message: 'Successfully retrieved all products',
@@ -105,7 +107,9 @@ class ProductController {
   static async getMyProducts(req, res) {
     try {
       const allProducts = await ProductService.getMyProducts(req.user.id);
-
+      for (let i = 0; i < allProducts.length; i++) {
+        allProducts[i].dataValues.Votes = allProducts[i].dataValues.Votes.length;
+      }
       res.status(200).json({
         status: 200,
         message: 'Successfully retrieved all your products',
