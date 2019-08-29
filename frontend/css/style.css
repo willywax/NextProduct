@@ -109,24 +109,30 @@ html {
 
 /*  apply a natural box layout model to all elements  */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 10vh;
-  align-content: space-around;
-  flex-wrap: wrap;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 0 2vh 0 2vh;
   background-color: #d3d4d4;
   border-bottom: 1.3px #d3d4d4 solid;
 }
 
 .logo {
-  flex-grow: 4;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
 }
+
 .logo a {
   text-decoration: none;
 }
@@ -140,20 +146,28 @@ html {
 }
 
 .menu__item__responsive {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 10vh;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background-color: #d3d4d4;
   border-bottom: 1.3px #d3d4d4 solid;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
 }
+
 .menu__item__responsive a {
   padding: 1rem;
   text-decoration: none;
   font-weight: 400;
   color: #35373a;
 }
+
 .menu__item__responsive a:hover {
   padding: 1rem;
   background-color: black;
@@ -161,7 +175,9 @@ html {
 }
 
 .icon {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   padding-right: 1rem;
 }
 
@@ -180,24 +196,42 @@ html {
   letter-spacing: 5px;
 }
 
+.product {
+  text-align: center;
+  padding: 1rem;
+}
+
+.product-image {
+  padding: 1rem;
+  margin: 0 0 -5px 0;
+}
+
+.product-image img {
+  height: 10rem;
+}
+
 @media only screen and (min-width: 560px) {
   .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 10vh;
-    align-content: space-around;
-    flex-wrap: wrap;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 0 2vh 0 2vh;
     background-color: #d3d4d4;
     border-bottom: 1.3px #d3d4d4 solid;
   }
-
   .logo {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
   .logo a {
     text-decoration: none;
   }
-
   .menu__item {
     display: inline-block;
   }
@@ -210,26 +244,21 @@ html {
     border-bottom: 5px rgba(128, 128, 128, 0.678) solid;
     padding: 2.8vh;
   }
-
   #menu_responsive {
     display: none;
   }
-
   .menu__link {
     color: #35373a;
   }
-
   .icon {
     display: none;
   }
-
   .header_info-main {
     display: block;
     text-align: center;
     font-size: 60px;
     font-weight: 400;
   }
-
   .header_info-sub {
     display: block;
     text-align: center;
@@ -237,53 +266,86 @@ html {
     font-weight: 400;
     letter-spacing: 5px;
   }
+  .products {
+    padding: 0 14rem;
+  }
+  .product {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .product-image {
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
+  }
+  .content {
+    padding: 1rem;
+    -webkit-box-flex: 6;
+        -ms-flex-positive: 6;
+            flex-grow: 6;
+  }
+  .content button:hover {
+    cursor: pointer;
+  }
 }
+
 @media only screen and (max-width: 560px) {
   /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
   html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
-
   /*  apply a natural box layout model to all elements  */
   * {
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-
   .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 10vh;
-    align-content: space-around;
-    flex-wrap: wrap;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 0 2vh 0 2vh;
     background-color: #d3d4d4;
     border-bottom: 1.3px #d3d4d4 solid;
   }
-
   .logo {
-    flex-grow: 4;
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
   }
   .logo a {
     text-decoration: none;
   }
-
   .menu__item {
     display: none;
   }
-
   #menu_responsive {
     display: none;
   }
-
   .menu__item__responsive {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 10vh;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     background-color: #d3d4d4;
     border-bottom: 1.3px #d3d4d4 solid;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 100%;
   }
   .menu__item__responsive a {
@@ -297,19 +359,18 @@ html {
     background-color: black;
     color: white;
   }
-
   .icon {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     padding-right: 1rem;
   }
-
   .header_info-main {
     display: block;
     text-align: center;
     font-size: 50px;
     font-weight: 400;
   }
-
   .header_info-sub {
     display: block;
     text-align: center;
@@ -317,25 +378,39 @@ html {
     font-weight: 400;
     letter-spacing: 5px;
   }
+  .product {
+    text-align: center;
+    padding: 1rem;
+  }
+  .product-image {
+    padding: 1rem;
+    margin: 0 0 -5px 0;
+  }
+  .product-image img {
+    height: 10rem;
+  }
 }
+
 body {
   background-color: whitesmoke;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2em;
 }
 
-header {
+.header {
   height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://media.glassdoor.com/l/60/74/cc/c5/open-space-workplace.jpg");
   background-size: cover;
   background-position: center top;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(245, 246, 252, 0.52)), to(rgba(117, 19, 93, 0.73))), url("https://media.glassdoor.com/l/60/74/cc/c5/open-space-workplace.jpg");
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://media.glassdoor.com/l/60/74/cc/c5/open-space-workplace.jpg");
 }
 
 .text-box {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -380,3 +455,60 @@ header {
   position: relative;
   top: 28px;
 }
+
+.product-image {
+  padding: 1rem;
+  margin: 0 0 -5px 0;
+}
+
+.product-image img {
+  height: 10rem;
+}
+
+.name {
+  font-size: 25px;
+  line-height: 32px;
+}
+
+.name a {
+  text-decoration: none;
+  color: black;
+}
+
+.name a :hover {
+  cursor: pointer;
+}
+
+.description {
+  font-size: 18px;
+  color: #504f4f;
+}
+
+.title {
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 35px;
+}
+
+.btn-sm {
+  border: 0;
+  border-radius: 3px;
+  height: 30px;
+}
+
+.upvotes {
+  margin-right: 1rem;
+  background-color: limegreen;
+  color: white;
+}
+
+.comments {
+  margin-right: 1rem;
+  background-color: #d8d8d7;
+}
+
+.share {
+  background-color: white;
+  color: black;
+}
+/*# sourceMappingURL=style.css.map */

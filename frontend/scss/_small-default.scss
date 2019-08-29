@@ -62,3 +62,14 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
     font-weight: 400;
     letter-spacing: 5px;
 }
+.product{
+    text-align: center;
+    padding: 1rem;
+}
+.product-image {
+    padding: 1rem;
+    margin: 0 0 -5px 0;
+    img{
+        height: 10rem;
+    }
+}
