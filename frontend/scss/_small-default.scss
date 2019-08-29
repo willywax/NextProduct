@@ -1,0 +1,64 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.menu{
+    display: flex;
+    height: 10vh;
+    align-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 2vh 0 2vh;
+    background-color: #d3d4d4;
+    border-bottom: 1.3px $navcolor solid;
+}
+.logo{
+    flex-grow: 4;
+    a{
+        text-decoration: none
+       }
+}
+.menu__item{
+    display: none;
+}
+#menu_responsive{
+    display: none;
+}
+.menu__item__responsive{
+    display: flex;
+    height: 10vh;
+    flex-wrap: wrap;
+    background-color: #d3d4d4;
+    border-bottom: 1.3px $navcolor solid;
+    flex-direction: column;
+    height: 100%;
+    a{
+        padding: 1rem;
+        text-decoration: none;
+        font-weight: 400;
+        color: $fontColor;
+    }
+    a:hover{
+        padding: 1rem;
+        background-color: black;
+        color: white;
+    }
+}
+.icon{
+    flex-grow: 1;
+    padding-right: 1rem;
+}
+.header_info-main{
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+}
+.header_info-sub{
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+}

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+@import "variables";
+
+@import "reset";
+
+@import "small-default";
+
+@media only screen and (min-width: 560px) {
+    @import "medium";
+} // end media query
+
+@media only screen and (min-width: 1140px) {
+    @import "large";
+} // end media query
+
+@media only screen and (max-width: 560px) {
+    @import "small-default";
+}
+body{
+    background-color: $backgroundColor;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+header{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+    url("https://media.glassdoor.com/l/60/74/cc/c5/open-space-workplace.jpg");
+    background-size: cover;
+    background-position: center top;
+}
+.text-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.header_info{
+    position: relative;
+    color: white;
+    text-transform: uppercase;
+}
+.logo_link{
+    font-weight: 600;
+    color: $fontColor;
+}
+.icon{
+    font-weight: 600;
+    color: $fontColor;
+}
+.btn{
+    color: whitesmoke;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.btn-main{
+    width: 140px;
+    padding: 20px;
+    background-color: limegreen;
+}
+
+.btn-info{
+    width: 130vw;
+    padding: 10px 0 10px 30px;
+    background-color: limegreen;
+}
+.header_link{
+    margin-top: 10px;
+    position: relative;
+    top: 28px;
+}
