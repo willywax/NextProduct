@@ -1,3 +1,4 @@
+import Twitter from 'twitter';
 import ProductService from '../services/ProductService';
 import uploader from '../utils/cloudinary';
 
