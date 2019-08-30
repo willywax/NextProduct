@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nextProduct</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3d65813c00.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="logo">
+                <a class="logo_link" href="#">NextProduct</a>
+            </li>
+            <li class="ham">
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="products.html">ALL PRODUCTS</a>
+                <a class="menu__link" href="myproduct.html">MY PRODUCTS</a>
+                <a class="menu__link" href="index.html">LOG OUT</a>
+            </li>
+        </ul>
+        <ul id="menu_responsive">
+            <li class="menu__item__responsive">
+                <a class="menu__link" href="products.html">ALL PRODUCTS</a>
+                <a class="menu__link" href="myproduct.html">MY PRODUCTS</a>
+                <a class="menu__link" href="index.html">LOG OUT</a>
+            </li>
+        </ul>
+    </nav>
+    <h2 class="prod-tit">Update a Product</h2>
+    <form class="product-temp">
+        <label>Product Title</label>
+        </br>
+        <input type="text" placeholder="Petitoner">
+    </br>
+    </br>
+        <label>Description</label>
+    </br>
+        <textarea>
+            This is the platform that will help in raising the petitions
+            by the people withought fighting in roads but use the tech
+            to address our daily tasks. The users vote for a petition 
+            and the idea that gets many votes will be taken into consideration
+        </textarea>
+    </br>
+    </br>
+        <label>Image</label>
+    </br>
+        <input type="file">
+    </br>
+    </br>
+       <a href="product.html" class="pro-sub">update</a>
+    </form>
+</header>
+<div class="main"></div>
+<footer class="footer"></footer>
+<script src="../js/scripts.js"></script>
+</body>
+</html>
