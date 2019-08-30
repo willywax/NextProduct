@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,54 +9,59 @@
     <link href="../css/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3d65813c00.js"></script>
 </head>
+
 <body>
-<header>
-    <nav class="navbar">
-        <ul class="menu">
-            <li class="logo">
-                <a class="logo_link" href="#">NextProduct</a>
-            </li>
-            <li class="ham">
-                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="products.html">ALL PRODUCTS</a>
-                <a class="menu__link" href="myproduct.html">MY PRODUCTS</a>
-                <a class="menu__link" href="index.html">LOG OUT</a>
-            </li>
-        </ul>
-        <ul id="menu_responsive">
-            <li class="menu__item__responsive">
-                <a class="menu__link" href="products.html">ALL PRODUCTS</a>
-                <a class="menu__link" href="myproduct.html">MY PRODUCTS</a>
-                <a class="menu__link" href="index.html">LOG OUT</a>
-            </li>
-        </ul>
-    </nav>
-    <h2 class="prod-tit">Create a Product</h2>
-    <form class="product-temp">
-        <label>Product Title</label>
-        </br>
-        <input type="text" placeholder="Please include product title">
-    </br>
-    </br>
-        <label>Description</label>
-    </br>
-        <textarea>Please include your description</textarea>
-    </br>
-    </br>
-        <label>Image</label>
-    </br>
-        <input type="file">
-    </br>
-    </br>
-       <a href="product.html" class="pro-sub">create</a>
-    </form>
-</header>
-<div class="main"></div>
-<footer class="footer"></footer>
-<script src="../js/scripts.js"></script>
+    <header>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="logo">
+                    <a class="logo_link" href="#">NextProduct</a>
+                </li>
+                <li class="ham">
+                    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="addproduct.html"><i class="fa fa-plus-circle"></i>&nbsp; ADD PRODUCT</a>
+                    <a class="menu__link" href="products.html">ALL PRODUCTS</a>
+                    <a class="menu__link" href="myproducts.html">MY PRODUCTS</a>
+                    <a class="menu__link" href="index.html">LOG OUT</a>
+                </li>
+            </ul>
+            <ul id="menu_responsive">
+                <li class="menu__item__responsive">
+                    <a class="menu__link" href="addproduct.html"><i class="fa fa-plus-circle"></i>&nbsp; ADD PRODUCT</a>
+                    <a class="menu__link" href="products.html">ALL PRODUCTS</a>
+                    <a class="menu__link" href="products.html">ALL PRODUCTS</a>
+                    <a class="menu__link" href="myproducts.html">MY PRODUCTS</a>
+                    <a class="menu__link" href="index.html">LOG OUT</a>
+                </li>
+            </ul>
+        </nav>
+        <h2 class="prod-tit">Create a Product</h2>
+        <form class="product-temp">
+            <label>Product Title</label>
+            </br>
+            <input type="text" placeholder="please include product title">
+            </br>
+            </br>
+            <label>Description</label>
+            </br>
+            <textarea>please include your description</textarea>
+            </br>
+            </br>
+            <label>Image</label>
+            </br>
+            <input type="file">
+            </br>
+            </br>
+            <a href="product.html" class="pro-sub">create</a>
+        </form>
+    </header>
+    <div class="main"></div>
+    <footer class="footer"></footer>
+    <script src="../js/scripts.js"></script>
 </body>
+
 </html>

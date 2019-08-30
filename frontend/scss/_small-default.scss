@@ -74,13 +74,6 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
     }
 }
 // create product
-.common {
-    padding: 4px;
-    margin: 10px 0px;
-    width: 100%;
-    border-radius: 3px;
-    border: none;
-}
 .product-temp {
     background-color: rgba(white, 0.5);
     width: 75%;
@@ -88,17 +81,29 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
     border: 1px solid $navcolor;
     padding: 15px;
     label {
-        @extend .common;
+        padding: 4px;
+        margin: 10px 0px;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
         margin-top: 30px;
         font-size: 1em;
     }
     textarea {
-        @extend .common;
+        padding: 4px;
+        margin: 10px 0px;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
         font-size: 0.79em;
         height: 15vh;
     }
     input {
-        @extend .common;
+        padding: 4px;
+        margin: 10px 0px;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
         font-size: 0.79em;
         border: none;
     }
@@ -109,7 +114,11 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 }
 
 .pro-sub{ 
-    @extend .common;
+    padding: 4px;
+    margin: 10px 0px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
     font-size: 1em;
     cursor: pointer;
     display: block;
