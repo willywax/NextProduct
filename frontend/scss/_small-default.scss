@@ -73,3 +73,64 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
         height: 10rem;
     }
 }
+// create product
+.common {
+    padding: 4px;
+    margin: 10px 0px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+}
+.product-temp {
+    background-color: rgba(white, 0.5);
+    width: 75%;
+    margin: 40px auto;
+    border: 1px solid $navcolor;
+    padding: 15px;
+    label {
+        @extend .common;
+        margin-top: 30px;
+        font-size: 1em;
+    }
+    textarea {
+        @extend .common;
+        font-size: 0.79em;
+        height: 15vh;
+    }
+    input {
+        @extend .common;
+        font-size: 0.79em;
+        border: none;
+    }
+
+    input[type=file]:hover{
+        background-color: darken(white, 10%);
+    }
+}
+
+.pro-sub{ 
+    @extend .common;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    background-color: darken(white, 20%);
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 35%
+}
+
+.pro-sub:hover {
+    background-color: darken(white, 15%);
+}
+.prod-tit{
+    text-align: center;
+    color: rgba(black, 0.5);
+    margin: 5vh auto;
+}
+// end of add product
+
+.product_container {
+    margin: 1rem;
+}
+
