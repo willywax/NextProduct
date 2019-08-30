@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3d65813c00.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="logo">
+                    <a class="logo_link" href="#">NextProduct</a>
+                </li>
+                <li class="ham">
+                    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="./addproduct.html"><i class="fa fa-plus-circle"></i>&nbsp; ADD PRODUCT</a>
+                    <a class="menu__link" href="./products.html">ALL PRODUCTS</a>
+                    <a class="menu__link" href="./index.html">LOG OUT</a>
+                </li>
+            </ul>
+            <ul id="menu_responsive">
+                <li class="menu__item__responsive">
+                    <a class="menu__link" href="#"><i class="fa fa-plus-circle"></i>&nbsp; ADD PRODUCT</a>
+                    <a class="menu__link" href="#">ALL PRODUCTS</a>
+                    <a class="menu__link" href="#">LOG OUT</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+    <div class="product_container">
+        <div class="produc image">
+            <div class="product_image">
+                <img src="https://media.glassdoor.com/l/60/74/cc/c5/open-space-workplace.jpg">
+            </div>
+            <div class="product_owner">
+                <h1>LOREM IPSUM</h1>
+                <p>OWNER: DAVIS KABISWA</p>
+                <P>
+            Look for duplicate lines of code
+            Bad classifications and illogical lack of compatibility or similarity between code  
+            Avoid writing chunks of code more than 25 lines. If the code is about to take more than 25 lines, then you should consider refactoring or making the code into functions. 
+            Use modules to avoid a lot of code in one file
+            Apply consistent coding techniques across the entire development team.
+            Write tests before writing the functions. This helps to test what the code should return. 
+            
+            </P>
+            </div>
+        </div>
+        <div class="produc description">
+            <button class="btn-sm upvotes"><i class="fa fa-arrow-up"></i>&nbsp; 653 upvotes</button>
+            <button class="btn-sm comments"><i class="far fa-comment"></i>&nbsp; 3 comments</button>
+            <button class="btn-sm share"><i class="fa fa-share"></i>&nbsp; Share</button>
+        </div>
+        <div class="produc commentss">
+            <div class="comment one">
+                <h3>Jonathan Shyaka</h3>
+                <p>
+                   Look for duplicate lines of code
+            Bad classifications and illogical lack of compatibi 
+                </p><hr>
+            </div>
+            <div class="comment two">
+                <h3>William Vedastus</h3>
+                <p>
+                   Look for duplicate lines of code
+            Bad classifications and illogical lack of compatibi 
+                </p><hr>
+            </div>
+            <div class="enter">
+                Add comment <input type="text" name="comment">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -244,6 +244,10 @@ html {
   margin: 5vh auto;
 }
 
+.product_container {
+  margin: 1rem;
+}
+
 @media only screen and (min-width: 560px) {
   .menu {
     display: flex;
@@ -326,6 +330,10 @@ html {
 
   .pro-sub {
     width: 20%;
+  }
+
+  .product_container {
+    margin: 2rem 14rem;
   }
 }
 @media only screen and (min-width: 1140px) {
@@ -477,6 +485,10 @@ html {
     color: rgba(0, 0, 0, 0.5);
     margin: 5vh auto;
   }
+
+  .product_container {
+    margin: 1rem;
+  }
 }
 body {
   background-color: whitesmoke;
@@ -596,6 +608,57 @@ body {
 .share {
   background-color: white;
   color: black;
+}
+
+.product_container {
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+  font-size: 0.8em;
+  align-items: stretch;
+}
+.product_container .produc {
+  flex-grow: 1;
+  padding: 1rem;
+}
+.product_container .produc .comment {
+  height: 100px;
+}
+.product_container .image {
+  flex-grow: 3;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.product_container .image .product_image {
+  padding: 0;
+  flex-grow: 1;
+}
+.product_container .image .product_image img {
+  height: 300px;
+}
+.product_container .image .product_owner {
+  padding: 0;
+  flex-grow: 4;
+  padding: 1rem;
+}
+.product_container .description {
+  flex-grow: 1;
+}
+.product_container .buttons {
+  flex-grow: 2;
+}
+.product_container .commentss {
+  background-color: white;
+}
+.product_container .commentss .enter input {
+  width: 100%;
+  height: 80px;
+  border: black 1px solid;
 }
 
 /*# sourceMappingURL=style.css.map */
