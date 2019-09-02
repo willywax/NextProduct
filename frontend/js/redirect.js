@@ -1,18 +1,18 @@
 
-function redirect(pageTo){
-    var page = './login.html';
-    switch(pageTo){
-        case 'login': 
-            page = './frontend/html/signin.html';
-            break;
-        case 'signup':
-            page = './frontend/html/signup.html';
-            break;
-        case 'dashboard':
-                page = './frontend/html/products.html';
-    }
+function redirect(pageTo) {
+  let page = './login.html';
+  switch (pageTo) {
+    case 'login':
+      page = './frontend/html/signin.html';
+      break;
+    case 'signup':
+      page = './frontend/html/signup.html';
+      break;
+    case 'dashboard':
+      page = './frontend/html/products.html';
+  }
 
-    console.log(page);
+  console.log(page);
 
-    window.location.pathname = page;
+  window.location.pathname = page;
 }
