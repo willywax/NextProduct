@@ -2,9 +2,7 @@ import Password from '../utils/generatePassword';
 import userService from '../services/userService';
 import generateToken from '../utils/generateToken';
 
-
 const _ = require('lodash');
-
 class Users {
   static async createUser(req, res) {
     const rawData = _.pick(req.body, ['firstName', 'lastName', 'email',
@@ -52,8 +50,7 @@ class Users {
     if (!match) {
       return res.status(400).send({ status: res.statusCode, message: 'password is incorrect' });
     }
-
-    // otherwise
+  // otherwise
     const { id } = user;
     const token = generateToken(id, email);
     delete user.password;
