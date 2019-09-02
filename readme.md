@@ -2,6 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/willywax/NextProduct/badge.svg?branch=develop)](https://coveralls.io/github/willywax/NextProduct?branch=develop)
 [![Build Status](https://travis-ci.org/willywax/NextProduct.svg?branch=develop)](https://travis-ci.org/willywax/NextProduct)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ba717f114d08efc1a875/maintainability)](https://codeclimate.com/github/willywax/NextProduct/maintainability)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 NEXTPRODUCT allows an individual or a group of individuals to vote on the product that they feel are in line with their values, so that they can decide to support
 
