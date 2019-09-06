@@ -6,3 +6,4 @@ build
 lcov.info
 .DS_Store
 package-lock.json
+pgdata 

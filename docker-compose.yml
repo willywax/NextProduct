@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    environment:
+      DEV_DATABASE_URL: "postgres://db:5432/postgres"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  web: 
+    image: automart-api-3
+    depends_on:
+      - db
+    environment:
+      ENV: "development"
+    ports: 
+      - '5000:5000'
+    
